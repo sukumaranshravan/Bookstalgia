@@ -1,0 +1,163 @@
+body { 
+    padding: 0; 
+    margin: 0; 
+    background-color: rgb(36, 35, 35);
+} 
+
+#logo{
+    font-size: 72px;
+    background: -webkit-linear-gradient(#0f2cbd, #f65326);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.container-navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    background-color:white;
+   
+}
+.navbar{
+    color: rgb(255, 8, 0);
+    font-size: large;
+    padding: 5px;
+}
+
+.navbar > a{
+    color: rgb(43, 0, 255);
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    margin: 1rem;
+}
+
+.book-box{
+    border: solid rgb(170, 165, 165);
+    border-radius: 10px;
+    width: 200px;
+    height: 320px;
+    padding: 10px;
+}
+.book-box p{
+    text-align: center; font-size: large; font-weight: bold; 
+}
+/* .book-box li{
+    list-style-type: none;
+    text-align: justify;
+    margin-bottom: 1rem;
+} */
+
+.book-box img{
+    margin-left: 5%;
+    height: 270px;
+    width: auto;
+    margin-bottom: 5%;
+    border: none;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+}
+.book-box img:hover {
+    /* transform: rotate(360deg); */
+    transform: rotate(25deg);
+  }
+
+/* .book-box li span{
+    font-weight: bold;
+   
+} */
+.row {
+    border: solid silver;
+    border-width: 5px;
+    border-radius: 10px;
+    text-align: left;
+    margin: 1rem;
+    padding: 10px;
+}
+input{
+    width: 100%;
+    border-radius: 4px;
+}
+textarea{
+    width: 100%;
+    border-radius: 4px;
+}
+label{
+    font-weight: bold;
+}
+.items{
+    padding: 5px;
+    color: white;
+}
+button{
+    background-color: yellow;
+    text-align: center;
+    margin-left: 10%;
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 2%;
+}
+button:hover{
+    background-color: blue;
+    color: white;
+}
+
+.container-details{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 1.2rem;
+
+}
+
+.book-details{
+    border: solid rgb(102, 119, 230);
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+    padding: 5px;
+}
+.b-title{
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+.book-details p{
+    margin-bottom: 1.2rem;
+    text-align: justify;
+    color: white;
+}
+.book-details p span {
+    font-weight: bold;
+}
+
+#img-details{
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+.update{
+    width: 500px;
+}
+.update input{
+    margin-bottom: 2%;
+}
+
+.footer{
+    margin-top: 300px;
+    bottom: 0; 
+    height: 25px;
+    text-align: center; 
+    padding: 10px;
+    background-color: azure;
+}

@@ -1,0 +1,39 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="container">
+    <% items.forEach((item)=>{ %>
+        <div class="book-box">
+            <!-- <p><%= item.title %></p> -->
+                <img src="https://covers.openlibrary.org/b/isbn/<%= item.isbn %>-M.jpg" />
+                <!-- <li><span>Author:</span> <%= item.author %></li>
+                <li><span>Gist: </span><%= item.gist.substring(0,140) %>..</li>
+                <li><span>Rating: </span><%= item.rating %></li>
+                <li><span>ISBN: </span><%= item.isbn %></li> -->
+                <form action="/details" method="post"><input type="hidden" name="bookId" value="<%= item.id %>">
+                <button type="submit">Read More</button>
+
+                </form>
+        </div>
+    <% }) %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer.ejs') -%>

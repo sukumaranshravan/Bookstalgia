@@ -1,0 +1,42 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="container-details">
+    <img src="<%= cover %>" id="img-details"/>
+    <% locals.items.forEach((item)=>{ %>
+        
+        <div class="book-details" id="details">        
+            <p class="b-title"><%= item.title %></p>
+            <p><span>Author:</span> <%= item.author %></p>
+            <p><span>Gist: </span><%= item.gist.substring(0,900) %>..</p>
+            <p><span>Rating: </span><%= item.rating %></p>
+            <p><span>ISBN: </span><%= item.isbn %></p>        
+            <button type="submit" onclick="buttonPress()">Edit</button>
+            <form action="/remove" method="post">
+                <input type="hidden" name="id" value="<%= item.id %>">
+                <button type="submit" style="background-color: rgb(236, 41, 41);">Delete</button>
+            </form>
+        </div>
+        <div class="update" style="display: none;" id="change">
+            <form action="/update" method="post">
+                <p class="b-title">Update Fields</p>
+                <input type="hidden" name="id" value="<%= item.id %>">
+                <input type="text" name="title" value="<%= item.title %>">
+                <input type="text" name="author" value="<%= item.author %>">
+                <textarea name="gist" cols="30" rows="10"><%= item.gist %></textarea>
+                <input type="text" name="rating" value="<%= item.rating %>">
+                <input type="text" name="isbn" value="<%= item.isbn %>">
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    <% }) %>
+</div>
+
+<script>
+    function buttonPress(){
+        document.getElementById("details").style.display = "none"
+        document.getElementById("change").style.display = "inline"       
+    }
+</script>
+
+
+<%- include('partials/footer.ejs') -%>

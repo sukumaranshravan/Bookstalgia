@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="container">
+    <div class="row">
+        <form action="/add" method="post">
+            <div class="items"><h1>Add a New Book</h1></div>
+            <div class="items">
+                <label>Title of the Book: </label>
+                <input type="text" name="title" id="">
+            </div>
+            <div class="items">
+                <label>Author: </label>
+                <input type="text" name="author" id="">
+            </div>  
+            <div class="items"> 
+                <label>Gist: </label>
+                <textarea name="gist" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="items">   
+                <label>Rating: </label>
+                <input type="text" name="rating" id="">
+            </div>
+            <div class="items">   
+                <label>ISBN: </label>
+                <input type="text" name="isbn" id="">
+            </div>   
+            <div class="items">
+                <button type="submit">Add Book</button>
+            </div>        
+        </form>
+    </div>
+</div>
+
+
+<%- include('partials/footer.ejs') -%>
