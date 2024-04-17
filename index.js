@@ -3,13 +3,20 @@ import bodyParser from "body-parser";
 import pg from "pg";
 import axios from "axios";
 
+// dotenv helps to hide our password or API KEYs etc 
+import dotenv from "dotenv"
+// configures dotenv
+dotenv.config();
+// console.log(process.env)
+
+
 const app = express();
 const port = 3000;
 const db = new pg.Client({
-    user:"postgres",
+    user:process.env.USER,
     host:"localhost",
     database:"bookstalgia",
-    password:"karuvaripp7",
+    password:process.env.PASSWORD,
     port:5432,
   });
 

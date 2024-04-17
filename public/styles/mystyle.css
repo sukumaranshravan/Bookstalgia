@@ -43,7 +43,8 @@ body {
     width: 200px;
     height: 320px;
     padding: 5px;
-    margin: 2px;
+    margin-right: 2px;
+    margin-bottom: 20px;
 }
 .book-box p{
     text-align: center; font-size: large; font-weight: bold; 
@@ -58,7 +59,7 @@ body {
     margin-left: 5%;
     height: 270px;
     width: 180px;;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     border: none;
     border-radius: 10px;
     transition: transform .5s ease-in-out;
