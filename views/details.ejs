@@ -13,7 +13,7 @@
             <button type="submit" onclick="buttonPress()">Edit</button>
             <form action="/remove" method="post">
                 <input type="hidden" name="id" value="<%= item.id %>">
-                <button type="submit" style="background-color: rgb(236, 41, 41);">Delete</button>
+                <button type="submit" style="background-color: rgb(236, 41, 41);" onclick="return confirm('Do you want to delete this item for sure?');">Delete</button>
             </form>
         </div>
         <div class="update" style="display: none;" id="change">
@@ -36,6 +36,12 @@
         document.getElementById("details").style.display = "none"
         document.getElementById("change").style.display = "inline"       
     }
+    // function makeSure(){
+    //     let result = confirm("Want to delete?");
+    //     if (result) {
+    //         this.form.submit()
+    //         }
+    // }
 </script>
 
 

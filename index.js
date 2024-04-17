@@ -17,18 +17,22 @@ db.connect();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
+// this is the home page we can change 'index.ejs' in a way we would like it to appear.
 app.get("/",async (req,res)=>{
-    const result = await db.query("select * from booklist order by id desc")
+    const result = await db.query("select * from booklist order by rating desc")
     // console.log(result.rows)
     const books = result.rows
     let value = books[0].isbn
     // const API_URL = `https://covers.openlibrary.org/b/isbn/${value}-L.jpg`
     res.render("index.ejs",{items:books})
 })
+
+// this route is to render new page where we could add data about new book for posting to the database
 app.get("/new",(req,res)=>{
     res.render("add_book.ejs")
 })
 
+// this route is for adding a new book to the database
 app.post("/add",async (req,res)=>{
     try{
         const name = req.body.title
@@ -45,6 +49,7 @@ app.post("/add",async (req,res)=>{
 })
 
 // this route is for the read more button, if we click on read more it will use this route
+// here we connect our website with openlibrary.org to fetch the image, api data is messed up so axios is not used.
 app.post("/details", async (req,res)=>{
     const  id = req.body.bookId
     const result = await db.query("select * from booklist where id = ($1)",[id])
@@ -52,11 +57,10 @@ app.post("/details", async (req,res)=>{
     let value = books[0].isbn
     const API_URL = `https://covers.openlibrary.org/b/isbn/${value}-L.jpg`
     // const response = await axios.get(API_URL)
-    console.log(req.params.bookId)
     res.render("details.ejs",{items:books,cover:API_URL})
 })
 
-// this route is actually an alternative to the above route, here if a user click on the Image, it will work
+// this route is actually an alternative to the above route, here if a user click on the Image, it will render the details page just like the above route.
 app.get("/detail/:id", async (req,res)=>{
     const id = req.params.id
     const result = await db.query("select * from booklist where id = ($1)",[id])
@@ -66,8 +70,7 @@ app.get("/detail/:id", async (req,res)=>{
     res.render("details.ejs",{items:books,cover:API_URL})
 })
 
-
-
+// this route is for update or edit an existing data
 app.post("/update", async (req,res)=>{
     const name = req.body.title
     const creator = req.body.author
@@ -79,13 +82,16 @@ app.post("/update", async (req,res)=>{
     res.redirect("/")
 })
 
+// this route removes a particular data selected by user, we can make more restraint on deletion to avoid mistakes
 app.post("/remove", async (req,res)=>{
-    console.log(req.body.id)
-    const id = req.body.id
-    await db.query("delete from booklist where id = ($1)",[id])
-    res.redirect("/")
+    console.log(req.body.id) 
+        const id = req.body.id
+        await db.query("delete from booklist where id = ($1)",[id])
+        res.redirect("/")
+        
 })
 
 app.listen(port,(req,res)=>{
     console.log(`Server is running successfully on port ${port}`)
 })
+
