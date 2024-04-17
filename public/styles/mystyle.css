@@ -1,7 +1,7 @@
 body { 
     padding: 0; 
     margin: 0; 
-    background-color: rgb(36, 35, 35);
+    background-color: rgb(56, 55, 55);
 } 
 
 #logo{
@@ -42,7 +42,8 @@ body {
     border-radius: 10px;
     width: 200px;
     height: 320px;
-    padding: 10px;
+    padding: 5px;
+    margin: 2px;
 }
 .book-box p{
     text-align: center; font-size: large; font-weight: bold; 
@@ -64,7 +65,7 @@ body {
 }
 .book-box img:hover {
     /* transform: rotate(360deg); */
-    transform: rotate(25deg);
+    transform: rotate(5deg);
   }
 
 /* .book-box li span{
@@ -105,7 +106,7 @@ button{
     margin-top: 2%;
 }
 button:hover{
-    background-color: blue;
+    background-color: rgb(64, 64, 221);
     color: white;
 }
 
@@ -119,7 +120,7 @@ button:hover{
 }
 
 .book-details{
-    border: solid rgb(102, 119, 230);
+    border: solid rgb(173, 174, 181);
     border-radius: 10px;
     width: 500px;
     height: 500px;
